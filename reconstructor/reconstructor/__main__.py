@@ -466,28 +466,6 @@ if __name__ == "__main__":
                 url = "https://github.com/emmamglass/reconstructor/releases/download/v0.0.1/fmt.metaG.01044A.bin.149.KEGGprot.sbml"
                 wget.download(url, out = script_path+r'\testfiles')
 
-        exe = 'glpk_interface.py'
-        '''if platform == 'Darwin' or platform == 'Linux':
-            home_directory = os.path.expanduser('~')
-        if platform == 'Windows':
-            home_directory = os.path.expanduser(r'C:Users$USERNAME')'''
-        if platform == 'Darwin':
-            pa = Path(script_path).parent
-            p = str(Path(pa).parent)
-        if platform == 'Windows':
-            p = str(Path(script_path).parent)
-        #path = os.path.join(script_path, 'opt')
-        for root, dirs, files in os.walk(p,topdown = True):
-            for name in files:
-                if name == exe:
-                    file_path = os.path.abspath(os.path.join(root,name))
-                    path = os.path.abspath(os.path.join(root))
-
-                    if os.path.exists(file_path):
-                        os.remove(file_path)
-                
-                    url = "https://github.com/emmamglass/reconstructor/releases/download/v0.0.1/glpk_interface.py"
-                    wget.download(url, out = path)
         if platform == 'Darwin':
             cmd_line = "python3 -m reconstructor --input_file " + script_path+"/testfiles/488.146.fa --file_type 1 --gram negative"
             print("Performing test 1")
